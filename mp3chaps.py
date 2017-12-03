@@ -5,6 +5,7 @@ Usage:
   mp3chaps.py (-l | -i | -r) <filename>
   
 Options:
+  -h  Show this help text
   -l  List chapters in <filename>
   -i  Import chapters from <filename>.chapters.txt
   -r  Remove chapters from <filename>
