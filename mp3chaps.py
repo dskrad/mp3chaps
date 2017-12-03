@@ -1,7 +1,18 @@
 #!/usr/bin/env python
 # encoding: utf-8
+"""
+Usage:
+  mp3chaps.py (-i | -l | -r) <filename>
+  
+Options:
+  -l  List chapters in <filename>
+  -i  Import chapters from <filename>.chapters.txt
+  -r  Remove chapters from <filename>
+
+"""
 from eyed3.id3 import Tag
-import sys, os
+from docopt import docopt
+import os
 
 def list_chaps(tag):
   "list chapters in tag"
@@ -9,7 +20,7 @@ def list_chaps(tag):
   for chap in tag.chapters:
     print chap.sub_frames.get("TIT2")[0]._text
 
-def remove_all_chaps(tag):
+def remove_chaps(tag):
   "remove all the chapters and save tag to file"
   chaps = [chap for chap in tag.chapters]
   for chap in chaps:
@@ -17,12 +28,6 @@ def remove_all_chaps(tag):
     tag.chapters.remove(chap.element_id)
   tag.save()
   
-def to_millisecs(time):
-  h, m, s = [float(x) for x in time.split(":")]
-  return int(1000 * (s + m*60 + h*60*60))
-  
-#print to_millisecs("00:10:25.055")
-
 def parse_chapters_file(fname):
   filename, ext = os.path.splitext(fname)
   chapters_fname = "{}.chapters.txt".format(filename)
@@ -51,6 +56,25 @@ def add_chapters(tag, fname):
     child_ids.append(element_id) 
     index += 1
   tag.table_of_contents.set("toc", child_ids=child_ids)
+  list_chaps(tag)
+  tag.save()
+
+def to_millisecs(time):
+  h, m, s = [float(x) for x in time.split(":")]
+  return int(1000 * (s + m*60 + h*60*60))
+
+#print to_millisecs("00:10:25.055"))
+
+if __name__ == '__main__':
+  args = docopt(__doc__, version="mp3chaps 0.1")
+  tag = Tag()
+  tag.parse(args["<filename>"])
+  if args["-l"]:
+    list_chaps(tag)
+  elif args["-i"]:
+    add_chapters(tag, args["<filename>"])
+  elif args["-r"]:
+    remove_chaps(tag)
 
 #first we will set chapters with element_id and times tuple (start, end)
 #times are in milliseconds
@@ -71,13 +95,3 @@ def add_chapters(tag, fname):
 
 #last but not least, save our tag
 #tag.save()
-
-if __name__ == '__main__':
-  tag = Tag()
-  if len(sys.argv) > 1:
-    tag.parse(sys.argv[1])
-    list_chaps(tag)
-    remove_all_chaps(tag)
-    add_chapters(tag, sys.argv[1])
-    list_chaps(tag)
-    tag.save()
