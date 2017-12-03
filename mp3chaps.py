@@ -2,7 +2,7 @@
 # encoding: utf-8
 """
 Usage:
-  mp3chaps.py (-i | -l | -r) <filename>
+  mp3chaps.py (-l | -i | -r) <filename>
   
 Options:
   -l  List chapters in <filename>
