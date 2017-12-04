@@ -3,7 +3,7 @@
 """
 Usage:
   mp3chaps.py (-l | -i | -r) <filename>
-  
+
 Options:
   -h  Show this help text
   -l  List chapters in <filename>
@@ -28,7 +28,7 @@ def remove_chaps(tag):
     print "removing {}".format(chap.sub_frames.get("TIT2")[0]._text)
     tag.chapters.remove(chap.element_id)
   tag.save()
-  
+
 def parse_chapters_file(fname):
   filename, ext = os.path.splitext(fname)
   chapters_fname = "{}.chapters.txt".format(filename)
@@ -54,7 +54,7 @@ def add_chapters(tag, fname):
     times, title = chap
     new_chap = tag.chapters.set(element_id, times)
     new_chap.sub_frames.setTextFrame("TIT2", u"{}".format(title))
-    child_ids.append(element_id) 
+    child_ids.append(element_id)
     index += 1
   tag.table_of_contents.set("toc", child_ids=child_ids)
   list_chaps(tag)
@@ -66,7 +66,8 @@ def to_millisecs(time):
 
 #print to_millisecs("00:10:25.055"))
 
-if __name__ == '__main__':
+def main():
+  "Entry point"
   args = docopt(__doc__, version="mp3chaps 0.1")
   tag = Tag()
   tag.parse(args["<filename>"])
@@ -76,6 +77,9 @@ if __name__ == '__main__':
     add_chapters(tag, args["<filename>"])
   elif args["-r"]:
     remove_chaps(tag)
+
+if __name__ == '__main__':
+  main()
 
 #first we will set chapters with element_id and times tuple (start, end)
 #times are in milliseconds
