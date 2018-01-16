@@ -12,6 +12,7 @@ Options:
 
 """
 from eyed3.id3 import Tag
+from eyed3 import core
 from docopt import docopt
 import os
 
@@ -41,7 +42,8 @@ def parse_chapters_file(fname):
 
 def add_chapters(tag, fname):
   chaps = parse_chapters_file(fname)
-  total_length = int(tag.getTextFrame('TLEN'))
+  audioFile = core.load(fname)
+  total_length = audioFile.info.time_secs * 1000
   chaps_ = []
   for i, chap in enumerate(chaps):
     if i < (len(chaps)-1):
