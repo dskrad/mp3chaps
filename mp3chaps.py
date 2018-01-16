@@ -2,6 +2,7 @@
 # encoding: utf-8
 """
 Usage:
+  mp3chaps.py -h
   mp3chaps.py (-l | -i | -r) <filename>
 
 Options:
