@@ -19,15 +19,15 @@ import os
 
 def list_chaps(tag):
   "list chapters in tag"
-  print "Chapters:"
+  print("Chapters:")
   for chap in tag.chapters:
-    print chap.sub_frames.get("TIT2")[0]._text
+    print(chap.sub_frames.get(b"TIT2")[0]._text)
 
 def remove_chaps(tag):
   "remove all the chapters and save tag to file"
   chaps = [chap for chap in tag.chapters]
   for chap in chaps:
-    print "removing {}".format(chap.sub_frames.get("TIT2")[0]._text)
+    print("removing {}".format(chap.sub_frames.get(b"TIT2")[0]._text))
     tag.chapters.remove(chap.element_id)
   tag.save()
 
@@ -56,7 +56,7 @@ def add_chapters(tag, fname):
     element_id = "ch{}".format(index)
     times, title = chap
     new_chap = tag.chapters.set(element_id, times)
-    new_chap.sub_frames.setTextFrame("TIT2", u"{}".format(title))
+    new_chap.sub_frames.setTextFrame(b"TIT2", u"{}".format(title))
     child_ids.append(element_id)
     index += 1
   tag.table_of_contents.set("toc", child_ids=child_ids)
