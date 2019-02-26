@@ -22,10 +22,8 @@ assuming you have a file named ``episode_42.mp3``, ``mp3chaps.py`` looks for a c
     00:42:24.123 Chapter Title
 
 add chapter marks
-=======
-add (import) chapter marks from text file (unexpected results may occur if chapters already exist, for best results remove chapters first with -r)
->>>>>>> 801d1a8d120a671b13445f0997aad1cf15535763
 -----------------
+add (import) chapter marks from text file (unexpected results may occur if chapters already exist, for best results remove chapters first with -r)
 
 ``mp3chaps.py -i episode_42.mp3``
 
