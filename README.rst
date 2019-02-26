@@ -21,10 +21,13 @@ assuming you have a file named ``episode_42.mp3``, ``mp3chaps.py`` looks for a c
     00:02:00.000 Chapter Title
     00:42:24.123 Chapter Title
 
+
 add chapter marks
 -----------------
 
 ``mp3chaps.py -i episode_42.mp3``
+
+If you run into errors, try using ASCII. There have been some issue with Unicode.
 
 list chapters
 -------------
