@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# encoding: utf-8
+# *-* encoding: utf-8 -*-
 """
 Usage:
   mp3chaps.py -h
@@ -71,7 +71,7 @@ def to_millisecs(time):
 
 def main():
   "Entry point"
-  args = docopt(__doc__, version="mp3chaps 0.1")
+  args = docopt(__doc__, version="mp3chaps 0.2")
   tag = Tag()
   tag.parse(args["<filename>"])
   if args["-l"]:
