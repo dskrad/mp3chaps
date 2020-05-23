@@ -1,5 +1,2 @@
 docopt==0.6.2
-eyeD3==0.8.4
-pathlib==1.0.1
-python-magic==0.4.13
-six==1.11.0
+eyeD3==0.9.5

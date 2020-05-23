@@ -53,13 +53,13 @@ def add_chapters(tag, fname):
   index = 0
   child_ids = []
   for chap in chaps_:
-    element_id = "ch{}".format(index)
+    element_id = "ch{}".format(index).encode()
     times, title = chap
     new_chap = tag.chapters.set(element_id, times)
     new_chap.sub_frames.setTextFrame(b"TIT2", u"{}".format(title))
     child_ids.append(element_id)
     index += 1
-  tag.table_of_contents.set("toc", child_ids=child_ids)
+  tag.table_of_contents.set(b"toc", child_ids=child_ids)
   list_chaps(tag)
   tag.save()
 
