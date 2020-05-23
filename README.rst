@@ -7,6 +7,10 @@ many pocast apps on Android and iOS support chapter markers in both mp4 (aac) an
 
 this utilizes the excellent `eyeD3 <https://github.com/nicfit/eyeD3>`_ tagging module to read and write chapter frames and title subframes
 
+requirements
+------------
+Python 3 (Python 2 is no longer supported)
+
 installation
 ------------
 
@@ -15,7 +19,7 @@ installation
 usage
 -----
 
-assuming you have a file named ``episode_42.mp3``, ``mp3chaps.py`` looks for a chapter marks file called ``episode_42.chapters.txt`` in the same directory::
+assuming you have a file named ``episode_42.mp3``, ``mp3chaps looks for a chapter marks file called ``episode_42.chapters.txt`` in the same directory::
 
     00:00:00.000 Introduction
     00:02:00.000 Chapter Title
@@ -25,16 +29,16 @@ add chapter marks
 -----------------
 add (import) chapter marks from text file (unexpected results may occur if chapters already exist, for best results remove chapters first with -r)
 
-``mp3chaps.py -i episode_42.mp3``
+``mp3chaps -i episode_42.mp3``
 
 If you run into errors, try using ASCII. There have been some issue with Unicode.
 
 list chapters
 -------------
 
-``mp3chaps.py -l episode_42.mp3``
+``mp3chaps -l episode_42.mp3``
 
 remove chapters
 ---------------
 
-``mp3chaps.py -r episode_42.mp3``
+``mp3chaps -r episode_42.mp3``
