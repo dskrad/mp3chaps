@@ -19,7 +19,7 @@ installation
 usage
 -----
 
-assuming you have a file named ``episode_42.mp3``, ``mp3chaps looks for a chapter marks file called ``episode_42.chapters.txt`` in the same directory::
+assuming you have a file named ``episode_42.mp3``, ``mp3chaps`` looks for a chapter marks file called ``episode_42.chapters.txt`` in the same directory::
 
     00:00:00.000 Introduction
     00:02:00.000 Chapter Title
