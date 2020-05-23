@@ -14,7 +14,7 @@ Python 3 (Python 2 is no longer supported)
 installation
 ------------
 
-``pip install mp3chaps``
+``pip3 install mp3chaps``
 
 usage
 -----
