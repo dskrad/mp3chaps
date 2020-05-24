@@ -45,6 +45,7 @@ def add_chapters(tag, fname):
   chaps = parse_chapters_file(fname)
   audioFile = core.load(fname)
   total_length = audioFile.info.time_secs * 1000
+  tag.setTextFrame(b"TLEN", str(int(total_length)))
   chaps_ = []
   for i, chap in enumerate(chaps):
     if i < (len(chaps)-1):
