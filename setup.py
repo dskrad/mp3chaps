@@ -9,7 +9,7 @@ from setuptools import find_packages, setup, Command
 
 # Package meta-data.
 NAME = 'mp3chaps'
-VERSION = '0.3'
+VERSION = '0.4'
 KEYWORDS = 'mp3 chapters'
 DESCRIPTION = 'tool for inserting chapter marks in mp3 files'
 URL = 'https://github.com/dskrad/mp3chaps'
