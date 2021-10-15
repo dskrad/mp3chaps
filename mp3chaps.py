@@ -31,9 +31,7 @@ def remove_chaps(tag):
     tag.chapters.remove(chap.element_id)
   tag.save()
 
-def parse_chapters_file(fname):
-  filename, ext = os.path.splitext(fname)
-  chapters_fname = "{}.chapters.txt".format(filename)
+def parse_chapters_file(chapters_fname):
   chaps = []
   with open(chapters_fname, "r") as f:
     for line in f.readlines():
@@ -41,8 +39,13 @@ def parse_chapters_file(fname):
       chaps.append((to_millisecs(time), title))
   return chaps
 
+def parse_chapters_mp3_file(mp3_fname):
+  filename, ext = os.path.splitext(mp3_fname)
+  chapters_fname = "{}.chapters.txt".format(filename)
+  return parse_chapters_file(chapters_fname)
+
 def add_chapters(tag, fname):
-  chaps = parse_chapters_file(fname)
+  chaps = parse_chapters_mp3_file(fname)
   audioFile = core.load(fname)
   total_length = audioFile.info.time_secs * 1000
   tag.setTextFrame(b"TLEN", str(int(total_length)))
