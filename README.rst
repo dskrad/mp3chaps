@@ -19,11 +19,21 @@ installation
 usage
 -----
 
-assuming you have a file named ``episode_42.mp3``, ``mp3chaps`` looks for a chapter marks file called ``episode_42.chapters.txt`` in the same directory::
+assuming you have a file named ``episode_42.mp3``, ``mp3chaps`` looks for a chapter marks file called ``episode_42.chapters.txt`` in the same directory.
+
+**Important**: File must be encoded in your system default file format, e.g. ANSI for Windows and UTF-8 for Unix
+
+either::
 
     00:00:00.000 Introduction
     00:02:00.000 Chapter Title
     00:42:24.123 Chapter Title
+
+or (Audacity export format, separated by tab, contains 2x start time in seconds of the chapter)::
+
+    0.000000	0.000000	Chapter 1
+    85.180378	85.180378	Chapter 2
+    543.822379	543.822379	Chapter 3 - spaces are allowed as you like
 
 add chapter marks
 -----------------

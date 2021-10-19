@@ -37,8 +37,18 @@ def parse_chapters_file(fname):
   chaps = []
   with open(chapters_fname, "r") as f:
     for line in f.readlines():
-      time, title = line.split()[0], " ".join(line.split()[1:])
-      chaps.append((to_millisecs(time), title))
+      if '\t' in line:
+        #assume we have audacity format
+        # e.g. "85.180378<\t>85.180378<\t>Chapter 1"
+        # (<time in seconds> <tab> <time in seconds> <tab> <chapter name>
+        time, title = line.split('\t')[0], line.split('\t')[2].strip()
+        chaps.append((float(time) * 1000, title))
+      else:
+        #previous format
+        # e.g. 00:15:00.000 Chapter 1
+        # (<hh:mm:ss.ms> <Chapter name>)
+        time, title = line.split()[0], " ".join(line.split()[1:])
+        chaps.append((to_millisecs(time), title))
   return chaps
 
 def add_chapters(tag, fname):
