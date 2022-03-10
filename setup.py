@@ -9,7 +9,7 @@ from setuptools import find_packages, setup, Command
 
 # Package meta-data.
 NAME = 'mp3chaps'
-VERSION = '0.4'
+VERSION = '0.5'
 KEYWORDS = 'mp3 chapters'
 DESCRIPTION = 'tool for inserting chapter marks in mp3 files'
 URL = 'https://github.com/dskrad/mp3chaps'
@@ -18,7 +18,7 @@ AUTHOR = 'David Karimeddini'
 
 # What packages are required for this module to be executed?
 REQUIRED = [
-    'docopt>=0.6.2', 'eyeD3>=0.9.5'
+    'docopt>=0.6.2', 'eyeD3>=0.9.6'
     ]
 
 # The rest you shouldn't have to touch too much :)
@@ -97,6 +97,9 @@ setup(
     'Programming Language :: Python :: 3.4',
     'Programming Language :: Python :: 3.5',
     'Programming Language :: Python :: 3.6',
+    'Programming Language :: Python :: 3.7',
+    'Programming Language :: Python :: 3.8',
+    'Programming Language :: Python :: 3.9',
     'Programming Language :: Python :: Implementation :: CPython',
     'Programming Language :: Python :: Implementation :: PyPy'
     ],
