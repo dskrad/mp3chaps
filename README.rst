@@ -23,13 +23,13 @@ The chapter markers could be in either timecode or millisecond format
 
 assuming you have a file named ``episode_42.mp3``, ``mp3chaps`` looks for a chapter marks file called ``episode_42.chapters.txt`` in the same directory::
 
-00:00:00.000 Introduction
-00:02:00.000 Chapter Title
-00:42:24.123 Chapter Title
--
-00000000 Introduction
-00060000 Chapter Title
-00276123 Chapter Title
+ 00:00:00.000 Introduction 
+ 00:02:00.000 Chapter Title 
+ 00:42:24.123 Chapter Title 
+ 
+ 00000000 Introduction 
+ 00060000 Chapter Title 
+ 00276123 Chapter Title 
 
 add chapter marks
 -----------------
