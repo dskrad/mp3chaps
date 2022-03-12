@@ -1,44 +1,70 @@
 mp3chaps
 ========
 
-commandline utility for adding chapter marks to mp3 files similar to ``mp4chaps`` utility
+Command line utility for adding chapter marks to mp3 files.
 
-many pocast apps on Android and iOS support chapter markers in both mp4 (aac) and mp3 files
+Many podcast and audiobook apps on Android and iOS support chapter markers in mp3 files
 
-this utilizes the excellent `eyeD3 <https://github.com/nicfit/eyeD3>`_ tagging module to read and write chapter frames and title subframes
+This utilizes the excellent `eyeD3 <https://github.com/nicfit/eyeD3>`_ lib to read and write chapter frames and title subframes
 
 requirements
 ------------
-Python 3 (Python 2 is no longer supported)
+Python 3
 
 installation
 ------------
 
-``pip3 install mp3chaps``
+``pip3 install .``
 
 usage
 -----
 
-assuming you have a file named ``episode_42.mp3``, ``mp3chaps`` looks for a chapter marks file called ``episode_42.chapters.txt`` in the same directory::
+The chapter markers should be in either timecode or millisecond format.
 
-    00:00:00.000 Introduction
-    00:02:00.000 Chapter Title
-    00:42:24.123 Chapter Title
+Assuming you have a file named ``episode_42.mp3``, ``mp3chaps`` looks for a chapter marks file called ``episode_42.chapters.txt`` in the same directory::
 
-add chapter marks
+ 00:00:00.000 Introduction 
+ 00:02:00.000 Chapter Title 
+ 00:42:24.123 Chapter Title 
+ 
+ 00000000 Introduction 
+ 00060000 Chapter Title 
+ 00276123 Chapter Title 
+
+Add chapter marks
 -----------------
-add (import) chapter marks from text file (unexpected results may occur if chapters already exist, for best results remove chapters first with -r)
+Add (import) chapter marks from text file (if chapters already exist, remove first with the option -r)
 
 ``mp3chaps -i episode_42.mp3``
 
-If you run into errors, try using ASCII. There have been some issue with Unicode.
-
-list chapters
+List chapters
 -------------
 
 ``mp3chaps -l episode_42.mp3``
 
-remove chapters
+Remove chapters
 ---------------
 
 ``mp3chaps -r episode_42.mp3``
+
+List chapters details
+-------------
+
+``mp3chaps -p episode_42.mp3``
+
+Export chapters with timecode markers to <filename>.chaps.txt
+---------------
+
+``mp3chaps -e=tc episode_42.mp3``
+
+Export chapters with milliseconds markers to <filename>.chaps.txt
+---------------
+
+``mp3chaps -e=ms episode_42.mp3``
+
+Add test chapters marks
+-------------
+
+``mp3chaps -t episode_42.mp3``
+
+---------------
