@@ -12,9 +12,9 @@ NAME = 'mp3chaps'
 VERSION = '0.5'
 KEYWORDS = 'mp3 chapters'
 DESCRIPTION = 'tool for inserting chapter marks in mp3 files'
-URL = 'https://github.com/dskrad/mp3chaps'
-EMAIL = 'dskcl1@gmail.com'
-AUTHOR = 'David Karimeddini'
+URL = 'https://github.com/rfjaquez/mp3chaps'
+EMAIL = 'rfjqz-github@yahoo.com'
+AUTHOR = 'Ramon Jaquez'
 
 # What packages are required for this module to be executed?
 REQUIRED = [
